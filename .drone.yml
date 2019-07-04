@@ -1,0 +1,47 @@
+kind: pipline
+name: Winsper-Server
+
+steps:
+- name: test
+  image: maven
+  volumes:
+  - name: dependency
+    path: /root/.m2
+# - name: configuration
+#   path: /drone/src/back-end/src/main/resources/application.yml
+  commands:
+  - mvn clean
+  - mvn package -Dmaven.test.skip=true
+  - echo "test and package server completed 🙂🙂🙂"
+
+- name: upload
+  image: appleboy/drone-scp
+  settings:
+    host: 47.103.0.246
+    username: root
+    password:
+      from_secret: yjy_password
+    rm: true
+    target: /Winsper/server
+    source:
+    - target/winsperserver-service-0.0.1-SNAPSHOT.jar
+    - Dockerfile
+
+- name: deploy
+  image: appleboy/drone-ssh
+  settings:
+    host: 47.103.0.246
+    username: root
+    password:
+      from_secret: yjy_password
+    script:
+    - cd /Winsper/server/target
+    - cp ../Dockerfile .
+    - docker build -t winsper-server .
+    - docker rm -f winsper-server-c
+    - docker run -d --name winsper-server-c -p 7100:7100 winsper-server
+
+volumes:
+- name: dependency
+  host:
+    path: /root/.m2
