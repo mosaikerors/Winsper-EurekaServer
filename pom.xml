@@ -10,9 +10,9 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.mosaiker</groupId>
-  <artifactId>winsperserver</artifactId>
+  <artifactId>winsper-server</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>winsperserver</name>
+  <name>winsper-server</name>
   <description>server of winsper</description>
 
   <properties>
