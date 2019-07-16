@@ -17,23 +17,19 @@ steps:
 - name: upload
   image: appleboy/drone-scp
   settings:
-    host: 47.103.0.246
+    host: 10.0.0.98
     username: root
-    password:
-      from_secret: yjy_password
     rm: true
     target: /Winsper/server
     source:
-    - target/winsper-server-service-0.0.1-SNAPSHOT.jar
+    - target/winsper-server-0.0.1-SNAPSHOT.jar
     - Dockerfile
 
 - name: deploy
   image: appleboy/drone-ssh
   settings:
-    host: 47.103.0.246
+    host: 10.0.0.98
     username: root
-    password:
-      from_secret: yjy_password
     script:
     - cd /Winsper/server/target
     - cp ../Dockerfile .
