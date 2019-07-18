@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: Winsper-Server
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: eureka
+    spec:
+      containers:
+        - name: Winsper-Server
+          image: appleboy/drone-ssh
+          env:
+            - name: AUTHOR
+              value: eureka
+          ports:
+            - containerPort: 7100

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: Winsper-Server
+spec:
+  ports:
+    - port: 7100
+      protocol: TCP
+      targetPort: 7100
+  type: NodePort
+  selector:
+    app: Winsper-Server
