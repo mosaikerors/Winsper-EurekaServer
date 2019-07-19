@@ -1,0 +1,59 @@
+version: "3"
+
+services:
+  winsper-server-c:
+    image: winsper-server
+    ports:
+      - "7100:7100"
+    volumes:
+      - "/root/.m2"
+    deploy:
+      replicas: 1
+      constraints: [node.role == manager]
+
+  winsper-zuul-c:
+    image: winsper-winsper-zuul
+    ports:
+      - "7120:7120"
+    volumes:
+      - "/root/.m2"
+    deploy:
+      replicas: 2
+      placement:
+        constraints: [node.role == manager]
+
+  winsper-config-server-c:
+    image: winsper-config-server
+    ports:
+      - "7199:7199"
+    volumes:
+      - "/root/.m2"
+    deploy:
+      replicas: 2
+
+  winsper-user-service-c:
+    image: winsper-user-service
+    ports:
+      - "7180:7180"
+    volumes:
+      - "/root/.m2"
+    deploy:
+      replicas: 3
+
+  winsper-hean-service-c:
+    image: winsper-hean-service
+      ports:
+        - "7190:7190"
+      volumes:
+        - "/root/.m2"
+      deploy:
+        replicas: 5
+
+  winsper-admin-service-c:
+    image: winsper-admin-service
+      ports:
+        - "7190:7190"
+      volumes:
+        - "/root/.m2"
+      deploy:
+        replicas: 2

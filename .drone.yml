@@ -35,7 +35,7 @@ steps:
     - cp ../Dockerfile .
     - docker build -t winsper-server .
     - docker rm -f winsper-server-c
-    - docker run -d --name winsper-server-c -p 7100:7100 winsper-server
+    - docker stack deploy -c docker-compose.yml stack-demo
 
 volumes:
 - name: dependency
