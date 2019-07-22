@@ -16,8 +16,8 @@ steps:
    - cd /
    - ls
 
-- name: test2
-  image: golang
+- name: mongo
+  image: mongo
 # - name: configuration
 #   path: /drone/src/back-end/src/main/resources/application.yml
   commands:
