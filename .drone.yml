@@ -4,9 +4,9 @@ name: Winsper-Server
 steps:
 - name: test
   image: gusabary/cn-maven
-#  volumes:
-#  - name: dependency
-#    path: /root/.m2
+  volumes:
+  - name: dependency
+    path: /root/.m2
 # - name: configuration
 #   path: /drone/src/back-end/src/main/resources/application.yml
   commands:
@@ -37,7 +37,7 @@ steps:
     - docker rm -f winsper-server-c
     - docker run -d --name winsper-server-c -p 7100:7100 winsper-server
 
-#volumes:
-#- name: dependency
-#  host:
-#    path: /root/.m2
+volumes:
+- name: dependency
+  host:
+    path: /root/.m2
