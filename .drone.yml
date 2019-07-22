@@ -16,7 +16,7 @@ steps:
    - cd /
    - ls
 
-- name: test
+- name: test2
   image: golang
 # - name: configuration
 #   path: /drone/src/back-end/src/main/resources/application.yml
