@@ -40,4 +40,4 @@ steps:
 volumes:
 - name: dependency
   host:
-    path: /a
+    path: /root/.m2
