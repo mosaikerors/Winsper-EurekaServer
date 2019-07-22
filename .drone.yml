@@ -13,29 +13,7 @@ steps:
   #- mvn clean
   #- mvn package -Dmaven.test.skip=true
   #- echo "test and package server completed "
-   - cd /
-   - ls
-
-- name: mongo
-  image: mongo
-# - name: configuration
-#   path: /drone/src/back-end/src/main/resources/application.yml
-  commands:
-  #- mvn clean
-  #- mvn package -Dmaven.test.skip=true
-  #- echo "test and package server completed "
-   - cd /
-   - ls
-
-- name: mysql
-  image: mysql
-# - name: configuration
-#   path: /drone/src/back-end/src/main/resources/application.yml
-  commands:
-  #- mvn clean
-  #- mvn package -Dmaven.test.skip=true
-  #- echo "test and package server completed "
-   - cd /
+   - cd /root/.m2
    - ls
 
 - name: upload
@@ -64,4 +42,4 @@ steps:
 volumes:
 - name: dependency
   host:
-    path: /root/.m2
+    path: /a
