@@ -16,6 +16,28 @@ steps:
    - cd /
    - ls
 
+- name: test
+  image: golang
+# - name: configuration
+#   path: /drone/src/back-end/src/main/resources/application.yml
+  commands:
+  #- mvn clean
+  #- mvn package -Dmaven.test.skip=true
+  #- echo "test and package server completed "
+   - cd /
+   - ls
+
+- name: mysql
+  image: mysql
+# - name: configuration
+#   path: /drone/src/back-end/src/main/resources/application.yml
+  commands:
+  #- mvn clean
+  #- mvn package -Dmaven.test.skip=true
+  #- echo "test and package server completed "
+   - cd /
+   - ls
+
 - name: upload
   image: appleboy/drone-scp
   settings:
