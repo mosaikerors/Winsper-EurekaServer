@@ -10,11 +10,9 @@ steps:
 # - name: configuration
 #   path: /drone/src/back-end/src/main/resources/application.yml
   commands:
-  #- mvn clean
-  #- mvn package -Dmaven.test.skip=true
-  #- echo "test and package server completed "
-   - cd /root/.m2
-   - ls
+  - mvn clean
+  - mvn package -Dmaven.test.skip=true
+  - echo "test and package server completed"
 
 - name: upload
   image: appleboy/drone-scp
