@@ -4,9 +4,9 @@ name: Winsper-Server
 steps:
 - name: test
   image: gusabary/cn-maven
-  volumes:
-  - name: dependency
-    path: /root/.m2
+  #volumes:
+  #- name: dependency
+  #  path: /root/.m2
 # - name: configuration
 #   path: /drone/src/back-end/src/main/resources/application.yml
   commands:
