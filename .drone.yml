@@ -3,7 +3,7 @@ name: Winsper-Server
 
 steps:
 - name: test
-  image: maven
+  image: gusabary/cn-maven
   volumes:
   - name: dependency
     path: /root/.m2
