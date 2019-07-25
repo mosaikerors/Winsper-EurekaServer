@@ -39,7 +39,7 @@ steps:
     - cp ../Dockerfile .
     - docker rm -f winsper-server
     - docker build -t winsper-server .
-
+    - docker stack deploy -c docker-compose.yml testwinsper
 volumes:
 - name: dependency
   host:
