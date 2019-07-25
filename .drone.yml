@@ -19,6 +19,8 @@ steps:
   settings:
     host: 10.0.0.98
     username: root
+    key:
+      from_secret: private_key
     rm: true
     target: root/test/Winsper/server
     source:
@@ -30,6 +32,8 @@ steps:
   settings:
     host: 10.0.0.98
     username: root
+    key:
+      from_secret: private_key
     script:
     - cd /root/test/Winsper/server/target
     - cp ../Dockerfile .
