@@ -50,7 +50,7 @@ services:
         replicas: 5
 
   winsper-admin:
-    image: winsper-admin-service
+    image: winsper-admin
       ports:
         - "7190:7190"
       volumes:
