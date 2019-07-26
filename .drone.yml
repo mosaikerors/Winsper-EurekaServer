@@ -22,7 +22,7 @@ steps:
     key:
       from_secret: private_key
     rm: true
-    target: root/test/Winsper/server
+    target:/root/test/Winsper/server
     source:
     - target/winsper-server-0.0.1-SNAPSHOT.jar
     - Dockerfile
