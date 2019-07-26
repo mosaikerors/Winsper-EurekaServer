@@ -10,6 +10,7 @@ steps:
 # - name: configuration
 #   path: /drone/src/back-end/src/main/resources/application.yml
   commands:
+  - cp docker-compose.yml /root/test/Winsper
   - mvn clean
   - mvn package -Dmaven.test.skip=true
   - echo "test and package server completed 🙂🙂🙂"
@@ -39,7 +40,7 @@ steps:
     - cp ../Dockerfile .
     - docker rm -f winsper-server
     - docker build -t winsper-server .
-    - docker stack deploy -c docker-compose.yml testwinsper
+    - docker stack deploy -c /root/test/Winsper/docker-compose.yml testwinsper
 volumes:
 - name: dependency
   host:
