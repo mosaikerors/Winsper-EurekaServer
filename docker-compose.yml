@@ -5,6 +5,8 @@ services:
     image: winsper-server
     ports:
       - "7100:7100"
+    networks:
+      - "test"
     volumes:
       - "/root/.m2"
     deploy:
@@ -15,6 +17,8 @@ services:
     image: winsper-zuul
     ports:
       - "7120:7120"
+    networks:
+      - "test"
     volumes:
       - "/root/.m2"
     deploy:
@@ -26,6 +30,8 @@ services:
     image: winsper-config
     ports:
       - "7199:7199"
+    networks:
+      - "test"
     volumes:
       - "/root/.m2"
     deploy:
@@ -35,6 +41,8 @@ services:
     image: winsper-user
     ports:
       - "7180:7180"
+    networks:
+      - "test"
     volumes:
       - "/root/.m2"
     deploy:
@@ -42,18 +50,22 @@ services:
 
   winsper-hean:
     image: winsper-hean
-      ports:
-        - "7190:7190"
-      volumes:
-        - "/root/.m2"
-      deploy:
-        replicas: 5
+    ports:
+      - "7190:7190"
+    networks:
+      - "test"
+    volumes:
+      - "/root/.m2"
+    deploy:
+      replicas: 5
 
   winsper-admin:
     image: winsper-admin
-      ports:
-        - "7190:7190"
-      volumes:
-        - "/root/.m2"
-      deploy:
-        replicas: 2
+    ports:
+      - "7190:7190"
+    networks:
+      - "test"
+    volumes:
+      - "/root/.m2"
+    deploy:
+      replicas: 2
