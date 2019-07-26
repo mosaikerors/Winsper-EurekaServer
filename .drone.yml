@@ -38,6 +38,9 @@ steps:
     - cd /root/test/Winsper/server/target
     - cp ../Dockerfile .
     - docker rm -f winsper-server
+    - docker stack rm testwinsper
+    - docker network rm testwinsper-network
+    - docker network create --driver overlay testwinsper-network
     - docker build -t winsper-server .
     - docker stack deploy -c /root/test/Winsper/docker-compose.yml testwinsper
 volumes:
