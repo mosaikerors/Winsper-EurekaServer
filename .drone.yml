@@ -44,7 +44,7 @@ steps:
     - docker build -t gusabary/winsper-server .
     - docker login 
     - docker push gusabary/winsper-server
-    - docker stack deploy -c /root/test/Winsper/docker-compose.yml --with-registry-auth testwinsper
+    - docker stack deploy -c /root/test/Winsper/docker-compose.yml testwinsper
 volumes:
 - name: dependency
   host:
