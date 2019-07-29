@@ -42,6 +42,8 @@ steps:
     - docker stack rm testwinsper
     - docker network rm testwinsper_network
     - docker build -t winsper-server .
+    - docker login
+    - docker push deeell-test/winsper-server
     - docker stack deploy -c /root/test/Winsper/docker-compose.yml testwinsper
 volumes:
 - name: dependency
