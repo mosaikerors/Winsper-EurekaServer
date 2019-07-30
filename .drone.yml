@@ -1,5 +1,5 @@
 kind: pipline
-name: Winsper-Server
+name: winsper-server
 
 steps:
 - name: test
@@ -42,7 +42,7 @@ steps:
     - docker stack rm testwinsper
     - docker network rm testwinsper_network
     - docker build -t gusabary/winsper-server .
-    - docker login 
+    - docker login
     - docker push gusabary/winsper-server
     - docker stack deploy -c /root/test/Winsper/docker-compose.yml testwinsper
 volumes:
